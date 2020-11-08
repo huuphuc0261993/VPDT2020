@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <th:block th:replace="layoutUser::cssAllUser"></th:block>
+</head>
+<body>
+<header th:replace="layoutUser::topBarUser"></header>
+
+<div>
+    <div id="layoutSidenav">
+        <div th:replace="layoutUser::sidebarUser"></div>
+        <div id="layoutSidenav_content">
+
+            <main>
+                <form id="myform">
+
+                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel" th:name="exampleModalLabel"></h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <input hidden name="id" id="id" >
+                                    <div class="form-group">
+                                        <label for="message-text" class="col-form-label">Tiêu đề</label>
+                                        <input id="tieuDe" type="text" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="message-text" class="col-form-label">Nội dung</label>
+                                        <textarea class="form-control" id="message-text"></textarea>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+                                    <button type="button" onclick="thongbao.save()" class="btn btn-primary" id="modal-form-1"></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+
+
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <i class="f as fa-table mr-1"></i>
+                        Thông báo
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <thead>
+                                <tr>
+                                    <th>Tiêu đề</th>
+                                    <th>Nội dung</th>
+                                    <th>Ngày tạo</th>
+                                </tr>
+                                </thead>
+                                <tbody id="tBody">
+                                <!-- Modal HTML -->
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+</div>
+
+<footer th:replace="layoutUser::bottomBarUser"></footer>
+
+
+<th:block th:replace="layoutUser::jsAllUser"></th:block>
+<script type="text/javascript" th:src="@{/js/user/thongbaoUser.js}"></script>
+
+</body>
+
+</html>

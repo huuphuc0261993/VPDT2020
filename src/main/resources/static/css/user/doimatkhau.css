@@ -1,0 +1,55 @@
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+.container{
+    display: flex;
+    width: 100%;
+}
+.container-form{
+    width: 90%;
+}
+.form-element{
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+}
+.form-element__title{
+    width: 30%;
+    padding: 0 10px;
+}
+
+.form-element__input{
+    padding: 10px 5px ;
+    width: 80%;
+}
+
+.form-element__input--modifier{
+    width: 30%;
+}
+.modal-footer-btn{
+    display: flex;
+    width: 100%;
+    margin-bottom: 10px
+}
+.btn-action{
+    padding: 10px 0;
+    width: 100%;
+    margin-left: 10px;
+}
+h3{
+    padding: 10px;
+}
+
+#myform .row .col-md-4{
+    position: relative;
+}
+.custom-file{
+    width: 260px;
+    height: 260px;
+    position: absolute;
+    top: 0;
+    left: 14px;
+    opacity: 0;
+}

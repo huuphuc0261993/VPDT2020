@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <th:block th:replace="layoutUser::cssAll"></th:block>
+</head>
+<body>
+<header th:replace="layoutUser::topBar"></header>
+
+<div>
+    <div id="layoutSidenav">
+        <div th:replace="layoutUser::sidebar"></div>
+        <div id="layoutSidenav_content">
+
+            <main>
+                <form id="myform">
+                </form>
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <i class="f as fa-table mr-1"></i>
+                        Nhân Viên
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <thead>
+                                <tr>
+                                    <th>Tên đăng nhập</th>
+                                    <th>Tên nhân viên</th>
+                                    <th>Tên phòng ban</th>
+                                    <th>Email</th>
+                                    <th>Điện thoại</th>
+                                    <th>Action</th>
+                                </tr>
+                                </thead>
+                                <tbody id="tBody">
+                                <!-- Modal HTML -->
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+</div>
+
+<footer th:replace="layoutUser::bottomBar"></footer>
+
+
+<th:block th:replace="layoutUser::jsAll"></th:block>
+<script type="text/javascript" th:src="@{/js/user/daketthuc.js}"></script>
+
+</body>
+
+</html>

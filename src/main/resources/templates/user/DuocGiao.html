@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <th:block th:replace="layoutUser::cssAllUser"></th:block>
+
+</head>
+<body>
+<header th:replace="layoutUser::topBarUser"></header>
+<div>
+    <div id="layoutSidenav">
+        <div th:replace="layoutUser::sidebarUser"></div>
+        <div id="layoutSidenav_content">
+
+            <main>
+                <form class="container-form" id="myform" name="myform">
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <i class="far fa-compass mr-1"></i>
+                            <b>Công việc được giao</b>
+
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                    <tr role="row">
+                                        <th>Công Việc</th>
+                                        <th>Ngày bắt đầu</th>
+                                        <th>Ngày hoàn thành</th>
+                                        <th>Tình trạng</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody id="tBody">
+                                    <!-- Modal HTML -->
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </main>
+        </div>
+    </div>
+</div>
+<footer th:replace="layoutUser::bottomBarUser"></footer>
+<th:block th:replace="layoutUser::jsAllUser"></th:block>
+<script type="text/javascript" th:src="@{/js/user/duocgiao.js}"></script>
+</body>
+
+</html>

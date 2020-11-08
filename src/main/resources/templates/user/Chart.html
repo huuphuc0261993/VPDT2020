@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <th:block th:replace="layoutUser::cssAllUser"></th:block>
+</head>
+<body>
+<header th:replace="layoutUser::topBarUser"></header>
+<div>
+    <div id="layoutSidenav">
+        <div th:replace="layoutUser::sidebarUser"></div>
+        <div id="layoutSidenav_content">
+            <main class="container">
+                <div class="col-lg-9" style="margin-left: 15%">
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <i class="fas fa-chart-pie mr-1"></i>
+                            Biểu đồ thống kê tình trạng công việc
+                        </div>
+                        <div class="card-body">
+                            <canvas id="myPieChart" width="100%" height="50"></canvas>
+                        </div>
+                        <div class="card-footer small text-muted">Quản lý công việc</div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+</div>
+
+<footer th:replace="layoutUser::bottomBarUser"></footer>
+<th:block th:replace="layoutUser::jsAllUser"></th:block>
+<script th:src="@{/js/user/chart-pie-demo.js}"></script>
+</body>
+<script>
+
+</script>
+</html>

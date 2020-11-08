@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <th:block th:replace="layoutUser::cssAllUser"></th:block>
+    <link th:href="@{/css/user/doimatkhau.css}" rel="stylesheet"/>
+
+</head>
+<body>
+<header th:replace="layoutUser::topBarUser"></header>
+
+<div>
+    <div id="layoutSidenav">
+        <div th:replace="layoutUser::sidebarUser"></div>
+        <div id="layoutSidenav_content">
+
+            <main class="container">
+                <form class="container-form" id="myform" name="myform" enctype="multipart/form-data">
+                    <div class="row">
+                        <div class="col-md-8 col">
+                            <h3>Đổi mật khẩu</h3>
+                            <div class="form-element">
+                                <label class="form-element__title">Mật khẩu cũ</label>
+                                <input type="password" placeholder="Nhập mật khẩu cũ" id="passOld" name="passOld" class="form-element__input">
+                            </div>
+                            <div class="form-element">
+                                <label class="form-element__title">Mật khẩu mới</label>
+                                <input type="password" placeholder="Nhập mật khẩu mới" id="passCurrent" name="passCurrent" class="form-element__input">
+                            </div>
+                            <div class="form-element">
+                                <label class="form-element__title">Nhập lại mật khẩu</label>
+                                <input type="password" placeholder="Nhập mật lại mật khẩu mới" id="passConfirm" name="passConfirm" class="form-element__input">
+                            </div>
+
+                            <div class="modal-footer-btn">
+                                <button type="button" class="btn btn-success btn-action" id="modal-form-3"
+                                        onclick="changeInfo()">Khởi tạo
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mt-4">
+<!--                            <img src="/upload/person-placeholder.jpg" id="avatar" alt="avatar" style="width: 260px;height: 260px;">-->
+                            <img th:src="${avatar}" id="avatar" alt="avatar" style="width: 260px;height: 260px;">
+                            <input type="file" class="custom-file" id="customFile" name="customFile">
+                        </div>
+                    </div>
+                </form>
+            </main>
+        </div>
+    </div>
+</div>
+
+<footer th:replace="layoutUser::bottomBarUser"></footer>
+
+
+<th:block th:replace="layoutUser::jsAllUser"></th:block>
+<script type="text/javascript" th:src="@{/js/doimatkhau.js}"></script>
+</body>
+</html>

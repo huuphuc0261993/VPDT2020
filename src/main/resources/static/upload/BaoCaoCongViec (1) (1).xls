@@ -1,0 +1,29 @@
+<style> .textmode { mso-number-format:\@;font-family:Arial;font-size:16px;} </style><div>
+	<table class="grid-view" cellspacing="0" cellpadding="4" align="Center" rules="all" border="1" id="ctl22_gvCongViec" style="width:100%;border-collapse:collapse;">
+		<tr class="header">
+			<td class="textmode" align="center" colspan="6" style="font-weight:bold;">BÁO CÁO CÔNG VIỆC TỪ NGÀY 01/10/2020 ĐẾN NGÀY 31/10/2020</td>
+		</tr><tr class="header">
+			<th class="textmode" align="center" scope="col">STT</th><th class="textmode" align="center" scope="col">Tên công việc</th><th class="textmode" align="center" scope="col">Bộ phận</th><th class="textmode" align="center" scope="col">Tình trạng</th><th class="textmode" align="center" scope="col">Ng&#224;y bắt đầu</th><th class="textmode" align="center" scope="col">Ng&#224;y ho&#224;n th&#224;nh</th>
+		</tr><tr class="normal">
+			<td class="textmode" align="center" style="width:1%;">
+                            <span id="ctl22_gvCongViec_lblRowNumber_0">1</span>
+                        </td><td class="textmode" align="left" style="width:56%;">
+                            KẾ HOẠCH KIỂM KÊ NHÀ SÁCH
+                        </td><td class="textmode" align="left" style="width:56%;">
+                            Ban Giám Đốc<br>Nhà Sách<br>Tổ bán hàng tự động&Kỹ thuật<br>
+                        </td><td class="textmode" align="left">
+                            
+                        </td><td class="textmode" align="center" style="width:20%;">26/09/2020</td><td class="textmode" align="center" style="width:25%;">08/10/2020</td>
+		</tr><tr class="alternate">
+			<td class="textmode" align="center" style="width:1%;">
+                            <span id="ctl22_gvCongViec_lblRowNumber_1">2</span>
+                        </td><td class="textmode" align="left" style="width:56%;">
+                            BÁO CÁO KẾT QUẢ KIỂM KÊ NHÀ SÁCH
+                        </td><td class="textmode" align="left" style="width:56%;">
+                            Ban Giám Đốc<br>Nhà Sách<br>Tổ bán hàng tự động&Kỹ thuật<br>
+                        </td><td class="textmode" align="left">
+                            Quá hạn
+                        </td><td class="textmode" align="center" style="width:20%;">09/10/2020</td><td class="textmode" align="center" style="width:25%;">10/10/2020</td>
+		</tr>
+	</table>
+</div>

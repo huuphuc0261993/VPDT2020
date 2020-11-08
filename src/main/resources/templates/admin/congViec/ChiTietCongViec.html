@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <th:block th:replace="layoutUser::cssAllUser"></th:block>
+    <link rel="stylesheet" th:href="@{/css/user/styleUser.css}">
+
+</head>
+<body>
+<header th:replace="layout::topBar"></header>
+
+<div>
+    <div id="layoutSidenav">
+        <div th:replace="layout::sidebar"></div>
+        <div id="layoutSidenav_content">
+            <main>
+                <form class="container-form" id="myform" name="myform" enctype="multipart/form-data">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="container-fluid">
+                                <th:block th:each="item:${chiTiets}">
+                                    <h1 class="mt-4" th:text="${item.congViec.tenCongViec}"></h1>
+                                    <ol class="breadcrumb mb-4">
+                                        <!--                                        <th:block th:if="${item.checked()}">-->
+                                        <!--                                            <li class="breadcrumb-item active"-->
+                                        <!--                                                th:text="'Tình trạng: Quá hạn'"></li>-->
+                                        <!--                                        </th:block>-->
+                                        <!--                                        <th:block th:unless="${item.checked()}">-->
+                                        <!--                                            <li class="breadcrumb-item active"-->
+                                        <!--                                                th:text="'Tình trạng: Đang thực hiện'"></li>-->
+                                        <!--                                        </th:block>-->
+                                        <li class="breadcrumb-item active"
+                                            th:text="'Tình trạng: '+${item.congViec.tinhTrang.tinhTrang}">
+                                        </li>
+                                    </ol>
+                                    <div class="card mb-4">
+                                        <div class="card-body">
+                                            <b>Nội dung:</b>
+                                            <p class="mb-0" th:text="${item.congViec.noiDung}">
+                                            </p>
+                                            <b>Thời gian hoàn thành:</b>
+                                            <p class="mb-0"
+                                               th:text="${item.congViec.ngayBatDau}+' đến '+${item.congViec.ngayKetThuc}">
+                                            </p>
+                                            <input type="hidden" id="ngayKetThuc"
+                                                   th:value="${item.congViec.ngayKetThuc}">
+                                            <th:block th:each="items:${nhanVienChinh}">
+                                                <b>Nhân viên thực hiện chính:</b>
+                                                <p class="mb-0" th:text="${items.nhanVien.fullName}">
+                                                </p>
+                                            </th:block>
+                                            <b>Thành viên cùng tham gia:</b>
+                                            <th:block th:each="item:${nhanVienLamViec}">
+                                                <p class="mb-0" th:utext="${item}">
+                                                </p>
+                                            </th:block>
+                                            <th:block th:if="${item.congViec.tinhTrang.id == 5}">
+                                                <th:block th:each="item:${nhanVienChuyenGiao}">
+                                                    <b>Chuyển giao công việc:</b>
+                                                    <p class="mb-0"
+                                                       th:text="'Nhân viên: '+${item.fullName}">
+                                                    </p>
+                                                    <p class="mb-0"
+                                                       th:text="'Phòng ban: '+${item.phongBan.tenPB}">
+                                                    </p>
+                                                </th:block>
+                                            </th:block>
+                                            <th:block th:if="${item.congViec.tinhTrang.id == 4}">
+                                                <b>Gia hạn công việc:</b>
+                                                <p class="mb-0"
+                                                   th:text="'Ngày gia hạn: '+${item.ngayGiaHan}">
+                                                </p>
+                                            </th:block>
+                                            <div style="height: 2vh;"></div>
+                                        </div>
+                                    </div>
+                                    <div class="card mb-4">
+                                        <div class="card-header">
+                                            <i class="f as fa-table mr-1"></i>
+                                            BÁO CÁO
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="table-responsive">
+                                                <table class="table table-bordered " id="dataTable" width="100%"
+                                                       cellspacing="0">
+                                                    <thead>
+                                                    <tr>
+                                                        <!--                                                        <th>Tên công việc</th>-->
+                                                        <th style="width: 21%">Người báo cáo</th>
+                                                        <th style="width: 50%">Báo cáo</th>
+                                                        <th style="width: 20%">Ngày gửi báo cáo</th>
+                                                        <th style="width: 4%">File</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody id="tBody">
+                                                    <!-- Modal HTML -->
+                                                    <th:block th:each="item : ${listChiTiet}">
+                                                        <tr>
+                                                            <!--                                                            <td th:text="${item.congViec.tenCongViec}"></td>-->
+                                                            <td th:text="${item.nhanVien.fullName}"></td>
+                                                            <td th:text="${item.baoCao}"></td>
+                                                            <td th:text="${item.ngayBaoCao}"></td>
+
+                                                            <td>
+                                                                <th:block th:if="${item.file != null}">
+                                                                    <button th:value="${item.file}"
+                                                                            onclick="downLoadFile(this.value)"
+                                                                            class="btn btn-sm"><i
+                                                                            class="fa fa-download"></i>
+                                                                    </button>
+                                                                </th:block>
+
+                                                            </td>
+                                                            <!--                                                            <td th:text="${item.file}"></td>-->
+                                                            </td>
+                                                        </tr>
+                                                    </th:block>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </th:block>
+                            </div>
+                        </div>
+
+                        <th:block th:each="item:${chiTiets}">
+                            <input id="idChiTiet" type="hidden" th:value="${item.id}">
+                        </th:block>
+                    </div>
+                </form>
+            </main>
+        </div>
+    </div>
+</div>
+<footer th:replace="layout::bottomBar"></footer>
+
+<th:block th:replace="layout::jsAll"></th:block>
+<script type="text/javascript" th:src="@{/js/user/chitietcongviec.js}"></script>
+<!--<script type="text/javascript" th:src="@{/js/taocongviec.js}"></script>-->
+<script>
+    // file
+    $(".custom-file-input").on("change", function () {
+        var fileName = $(this).val().split("\\").pop();
+        $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+    });
+
+    function downLoadFile(url) {
+        var file_path = urlPathHost + '/upload/' + url;
+        var a = document.createElement('A');
+        a.href = file_path;
+        a.download = file_path.substr(file_path.lastIndexOf('/') + 1);
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+    }
+</script>
+</body>
+</html>

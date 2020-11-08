@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <th:block th:replace="layout::cssAll"></th:block>
+    <link th:href="@{/css/admin/taocongviec.css}" rel="stylesheet"/>
+
+</head>
+<body>
+<header th:replace="layout::topBar"></header>
+
+<div>
+    <div id="layoutSidenav">
+        <div th:replace="layout::sidebar"></div>
+        <div id="layoutSidenav_content">
+
+            <main class="container">
+                <form class="container-form" id="myform" name="myform">
+                    <h3>Tạo công việc</h3>
+                    <div class="form-group row">
+                        <label class="form-element__title">Tên công việc</label>
+                        <div class="form-group-input">
+                            <input type="text" placeholder="Nhập tên công việc" id="title_work" name="title_work"
+                                   class="form-element__input form-control">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="form-element__title">Nội dung</label>
+                        <div class="form-group-input">
+                            <textarea id="message_text" name="message_text"
+                                      class="form-element__input form-control"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="form-element__title"> Ngày bắt đầu</label>
+                        <input type="date" class="form-element__input form-element__input--modifier form-control"
+                               id="start_day" name="start_day">
+                        <label class="form-element__title">Ngày kết thúc</label>
+                        <input type="date" class="form-element__input form-element__input--modifier form-control"
+                               id="end_day" name="end_day">
+                    </div>
+                    <div class="form-group row">
+                        <label class="form-element__title">Phòng ban</label>
+                        <div class="form-group-input form-group-select">
+                            <select class="form-element__input form-element__input--modifier form-control"
+                                    id="phongBanId" name="phongBanId"
+                                    onchange="taocongviec.phongban(this)" style="height: auto">
+                            </select>
+                        </div>
+                        <label class="form-element__title">Nhân viên</label>
+                        <select class="form-element__input form-element__input--modifier form-control"
+                                id="nhanVienId" name="nhanVienId" style="height: 50%">
+                            <option disabled selected>--/--</option>
+                        </select>
+                    </div>
+                    <div class="modal-footer-btn">
+                        <button type="button" class="btn btn btn-dark btn-action" data-dismiss="modal"
+                                id="modal-form-1"
+                                onclick="taocongviec.them()">Thêm
+                        </button>
+                        <button type="button" class="btn btn-info btn-action" id="modal-form-2"
+                                onclick="taocongviec.themtatca()">Thêm tất cả
+                        </button>
+                        <button type="submit" class="btn btn-success btn-action" id="modal-form-3">Tạo Công Việc
+                        </button>
+                    </div>
+
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <i class="f as fa-table mr-1"></i>
+                            Thông báo
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                    <tr>
+                                        <th>Tên phòng ban</th>
+                                        <th>Tên nhân viên</th>
+                                        <th>Người làm chính</th>
+                                        <th>Action</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody id="tBody">
+                                    <!-- Modal HTML -->
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </main>
+        </div>
+    </div>
+</div>
+
+<footer th:replace="layout::bottomBar"></footer>
+
+
+<th:block th:replace="layout::jsAll"></th:block>
+<script type="text/javascript" th:src="@{/js/taocongviec.js}"></script>
+</body>
+
+</html>
