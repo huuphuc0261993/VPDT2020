@@ -50,7 +50,7 @@ public class ThongBaoController {
     public ModelAndView getViewUer() {
         Iterable<ThongBao> thongBaos = thongBaoService.findAllByIsDeletedEquals(0);
 
-        ModelAndView modelAndView = new ModelAndView("/user/ThongBaoUser");
+        ModelAndView modelAndView = new ModelAndView("user/ThongBaoUser");
         modelAndView.addObject("thongBaos", thongBaos);
         modelAndView.addObject("thongBao", new ThongBao());
         return modelAndView;

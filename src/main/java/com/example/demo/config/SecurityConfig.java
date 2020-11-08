@@ -25,10 +25,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     }
     @Autowired
     public void configureGlobalSecurity(AuthenticationManagerBuilder auth) throws Exception {
-//        auth.jdbcAuthentication().dataSource(dataSource)
-//                .usersByUsernameQuery("SELECT username, password, enabled FROM nhan_viens WHERE username = ?;")
-//                .authoritiesByUsernameQuery("SELECT username ,concat('ROLE_',roles) as roles FROM nhan_viens WHERE username = ?;")
-//                .passwordEncoder(encoder());
+        auth.jdbcAuthentication().dataSource(dataSource)
+                .usersByUsernameQuery("SELECT username, password, enabled FROM nhan_viens WHERE username = ?;")
+                .authoritiesByUsernameQuery("SELECT username ,concat('ROLE_',roles) as roles FROM nhan_viens WHERE username = ?;")
+                .passwordEncoder(encoder());
     }
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -61,7 +61,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and().logout()
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
                 .logoutSuccessUrl("/");
-//        http.csrf().disable();
+        http.csrf().disable();
     }
 
 

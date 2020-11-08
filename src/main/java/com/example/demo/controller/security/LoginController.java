@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 public class LoginController {
     @GetMapping("")
     public ModelAndView login() {
-        ModelAndView modelAndView = new ModelAndView("/login");
+        ModelAndView modelAndView = new ModelAndView("login");
         return modelAndView;
     }
 }
